@@ -13,7 +13,8 @@ public partial class Login : ContentPage
 		try
 		{
 
-			List<DadosUsario> lista_usuarios = new List<DadosUsario>() 
+            //Classe para armazenar os dados do usuário
+            List<DadosUsario> lista_usuarios = new List<DadosUsario>() 
 			{ 
 			
 				new DadosUsario()
@@ -33,7 +34,8 @@ public partial class Login : ContentPage
 
             };
 
-			DadosUsario dados_digitados = new DadosUsario()
+            //Classe para armazenar os dados digitados pelo usuário
+            DadosUsario dados_digitados = new DadosUsario()
 			{
 
 				Usuario = txt_Usuario.Text,
@@ -45,7 +47,8 @@ public partial class Login : ContentPage
 			if (lista_usuarios.Any(x => x.Usuario == dados_digitados.Usuario && x.Senha == dados_digitados.Senha))
 			{
 
-				 await SecureStorage.Default.SetAsync("usuario_logado", dados_digitados.Usuario);
+                //Se o usuário e senha estiverem corretos, armazena o usuário logado e redireciona para a página protegida
+                await SecureStorage.Default.SetAsync("usuario_logado", dados_digitados.Usuario);
 
 				App.Current.MainPage = new Protegida();
 

@@ -9,6 +9,7 @@
 
             MainPage = new Login();
 
+            // Verifica se o usuário está logado
             string? usuario_logado = null;
 
             Task.Run(async () =>

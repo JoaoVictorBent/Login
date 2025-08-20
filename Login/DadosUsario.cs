@@ -1,5 +1,7 @@
 ﻿namespace Login
 {
+
+    // Classe para armazenar os dados do usuário
     public class DadosUsario
     {
 

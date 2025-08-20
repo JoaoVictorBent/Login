@@ -6,7 +6,8 @@ public partial class Protegida : ContentPage
 	{
 		InitializeComponent();
 
-		string? usuario_logado = null;
+        // Verifica se o usuário está logado e mensagem de boas-vindas
+        string? usuario_logado = null;
 
 		Task.Run(async () =>
 		{
@@ -20,12 +21,14 @@ public partial class Protegida : ContentPage
     private async void Button_Clicked(object sender, EventArgs e)
     {
 
-		bool confirmacao = await DisplayAlert("Tem Certeza?", "Sair do app", "Sim", "Não");
+        // Método para sair do app
+        bool confirmacao = await DisplayAlert("Tem Certeza?", "Sair do app", "Sim", "Não");
 
 		if (confirmacao)
 		{
 
-			SecureStorage.Default.Remove("usuario_logado");
+            // Se o usuário confirmar, remove o usuário logado e redireciona para a página de login
+            SecureStorage.Default.Remove("usuario_logado");
 			App.Current.MainPage = new Login();
 
 		}
